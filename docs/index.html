@@ -4,42 +4,49 @@
         <meta charset="UTF-8">
         <title>Carrusel de Imagenes</title>
         <style>
-            body{
+            body {
                 font-family: sans-serif;
                 display: flex;
-                justify-content: top;
+                justify-content: center;
                 align-items: center;
                 height: 100vh;
-                flex-direction: column; /*alinea a los elementos hijos en forma de columna, uno de bajo del otri*/
+                flex-direction: column;
                 margin: 0;
                 background-color: rgb(216, 28, 28);
             }
             .contenedor {
-                width: 800px; /*este es el ancho del contenedor*/
-                height: 300px; /*este es el alto del contenedor*/
+                width: 800px;
+                height: 300px;
                 border: 5px solid #4d0d0d;
                 border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0,0,0,1); /* esta linea de codigo crea una sombra por debajo del contenedor*/
-                overflow: hidden; /* esto asegura que la imagen no se salga del borde*/
-            }   
-            #carrusel-imagen{
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+                overflow: hidden;
+                position: relative;
+            }
+            .carrusel-imagen {
                 width: 100%;
                 height: 100%;
-                display: block;/* elimina el espacio extra debajo de la imagen*/
-                transition: opacity 0.5s ease-in-out; /* animacion de desvanecimiento*/
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+            }
+            .carrusel-imagen.active {
+                opacity: 1;
             }
         </style>
     </head>
     <body>
         <h1>Mi Carrusel Automatico</h1>
         <div class="contenedor">
-            <img id="carrusel-imagen" src="imagen1.jpg" alt="imagen de carrusel">
-            <img id="carrusel-imagen" src="imagen2.jpg" alt="imagen de carrusel">
-            <img id="carrusel-imagen" src="imagen3.jpg" alt="imagen de carrusel">
+            <img class="carrusel-imagen active" src="imagen1.jpg" alt="imagen de carrusel">
+            <img class="carrusel-imagen" src="imagen2.jpg" alt="imagen de carrusel">
+            <img class="carrusel-imagen" src="imagen3.jpg" alt="imagen de carrusel">
         </div>
 
-
         <script src="script.js"></script>
-        <!--es recomendable llamar al archivo de js antes de cerrar el </body>-->
     </body>
 </html>
+
